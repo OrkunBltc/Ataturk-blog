@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Atatürk - Anasayfa</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #eaeaea;
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="200" height="200" viewBox="0 0 200 200"><rect width="200" height="200" fill="lightgray" fill-opacity="0.9" /><path d="M0 0L200 200M200 0L0 200" stroke="gray" stroke-width="1" /></svg>');
+            color: #333;
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 20px auto;
+            background-color: white;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+        }
+        
+        .header {
+            display: flex;
+            align-items: center;
+            padding: 10px 0;
+            border-bottom: 1px solid #ddd;
+            margin-bottom: 20px;
+        }
+        
+        .logo {
+            background: linear-gradient(to bottom, #333, #000);
+            color: white;
+            padding: 8px 15px;
+            font-size: 20px;
+            font-weight: bold;
+            text-align: center;
+            margin-right: 30px;
+        }
+        
+        .navigation {
+            display: flex;
+            background-color: #000; /* Changed to full black */
+        }
+        
+        .navigation a {
+            color: white;
+            text-decoration: none;
+            padding: 8px 12px;
+            font-weight: bold;
+            transition: background-color 0.3s;
+            margin-right: 5px;
+        }
+        
+        .navigation a:hover {
+            background-color: #333;
+        }
+        
+        .content {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+        
+        .main-content {
+            flex: 3;
+            min-width: 300px;
+        }
+        
+        .sidebar {
+            flex: 1;
+            min-width: 200px;
+            background-color: #f5f5f5;
+            padding: 15px;
+        }
+        
+        .timeline {
+            background-color: #f5f5f5;
+            padding: 15px;
+            margin: 20px 0;
+        }
+        
+        .timeline-title {
+            text-align: center;
+            background: linear-gradient(to bottom, #333, #000);
+            color: white;
+            padding: 10px;
+            margin-bottom: 10px;
+        }
+        
+        .timeline-container {
+            padding: 10px 0;
+        }
+        
+        .timeline-markers {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: relative;
+            height: 40px;
+            margin: 10px 0 30px 0;
+        }
+        
+        .timeline-markers::before {
+            content: "";
+            position: absolute;
+            top: 50%;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background-color: #999;
+            z-index: 1;
+        }
+        
+        .marker {
+            width: 20px;
+            height: 20px;
+            background-color: #333;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .year {
+            position: absolute;
+            top: 25px;
+            font-size: 14px;
+            font-weight: bold;
+        }
+        
+        .event {
+            position: absolute;
+            top: 45px;
+            font-size: 12px;
+            width: 80px;
+            text-align: center;
+            margin-left: -30px;
+        }
+        
+        .section-title {
+            background: linear-gradient(to bottom, #333, #000);
+            color: white;
+            padding: 10px;
+            text-align: center;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        
+        .footer {
+            display: flex;
+            justify-content: space-around;
+            background-color: #000; /* Changed to full black */
+            padding: 10px;
+            margin-top: 20px;
+        }
+        
+        .footer a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            padding: 5px 10px;
+        }
+        
+        .topics-list, .popular-list {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .topics-list li, .popular-list li {
+            padding: 8px 0;
+            border-bottom: 1px solid #ddd;
+        }
+        
+        .topics-list a, .popular-list a {
+            color: #333;
+            text-decoration: none;
+            display: block;
+            transition: color 0.3s;
+        }
+        
+        .topics-list a:hover, .popular-list a:hover {
+            color: #777;
+        }
+        
+        @media (max-width: 768px) {
+            .header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            
+            .logo {
+                margin-bottom: 10px;
+                margin-right: 0;
+            }
+            
+            .content {
+                flex-direction: column;
+            }
+            
+            .main-content, .sidebar {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="logo">Atatürk</div>
+            <div class="navigation">
+                <a href="#" id="home-link">Ana Sayfa</a>
+                <a href="#" id="gallery-link">Galeri</a>
+                <a href="#" id="about-link">Hakkımda</a>
+                <a href="#" id="instagram-link">Instagram</a>
+                <a href="#" id="contact-link">İletişim</a>
+            </div>
+        </div>
+        
+        <div id="main-page">
+            <div class="content">
+                <div class="main-content">
+                    <div class="section-title">Atatürk Görseli</div>
+                    <div style="text-align: center; padding: 20px 0;">
+                        <img src="depositphotos_685502124-stock-photo-november-anitkabir-mausoleum-founder-turkish.jpg" alt="Atatürk Görseli" style="max-width: 100%; height: auto;" />
+                    </div>
+                    
+                    <div class="section-title">MUSTAFA KEMAL ATATÜRK</div>
+                    <p>Mustafa Kemal Atatürk (1881-1938), Türkiye Cumhuriyeti'nin kurucusu ve ilk cumhurbaşkanıdır. Osmanlı İmparatorluğu'nun çöküşü sonrasında Türk Kurtuluş Savaşı'na önderlik etmiş ve modern Türkiye Cumhuriyeti'nin kuruluşunda en önemli rolü oynamıştır.</p>
+                    <p>Atatürk, sadece askeri bir lider değil, aynı zamanda vizyoner bir devlet adamı olarak da bilinir. Cumhuriyetin ilanından sonra gerçekleştirdiği siyasi, hukuki, eğitim ve kültürel reformlarla Türkiye'yi modern, laik ve demokratik bir ülkeye dönüştürmeye çalışmıştır.</p>
+                    <p>Harf Devrimi, Kılık Kıyafet Devrimi, Medeni Kanun'un kabulü, kadınlara seçme ve seçilme hakkının verilmesi gibi birçok yenilik, onun liderliğinde gerçekleştirilmiştir.</p>
+                </div>
+                
+                <div class="sidebar">
+                    <div class="section-title">İlgili Konular</div>
+                    <ul class="topics-list">
+                        <li><a href="#" id="topic-1">Türk Kurtuluş Savaşı</a></li>
+                        <li><a href="#" id="topic-2">Cumhuriyet Dönemi</a></li>
+                        <li><a href="#" id="topic-3">Atatürk İlkeleri</a></li>
+                        <li><a href="#" id="topic-4">Atatürk Devrimleri</a></li>
+                    </ul>
+                    
+                    <div class="section-title">Popüler Makaleler</div>
+                    <ul class="popular-list">
+                        <li><a href="#" id="article-1">Nutuk: Atatürk'ün Büyük Eseri</a></li>
+                        <li><a href="#" id="article-2">Çanakkale Savaşı ve Atatürk</a></li>
+                        <li><a href="#" id="article-3">Cumhuriyet'in İlanı</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="timeline">
+                <div class="timeline-title">Atatürk Yaşam Çizgisi</div>
+                <div class="timeline-container">
+                    <div class="timeline-markers">
+                        <div class="marker">
+                            <div class="year">1881</div>
+                            <div class="event">Doğdu</div>
+                        </div>
+                        <div class="marker">
+                            <div class="year">1915</div>
+                            <div class="event">Çanakkale Savaşı</div>
+                        </div>
+                        <div class="marker">
+                            <div class="year">1923</div>
+                            <div class="event">Cumhuriyeti Kurdu</div>
+                        </div>
+                        <div class="marker">
+                            <div class="year">1938</div>
+                            <div class="event">Vefat Etti</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Biography Page Content -->
+        <div id="biography-page" style="display: none;">
+            <div class="section-title">Atatürk Biyografi</div>
+            <h2>Hayatı</h2>
+            <p>Mustafa Kemal Atatürk, 1881 yılında Selanik'te doğdu. Askeri eğitim aldı ve Osmanlı ordusunda görev yaptı. Çanakkale Savaşı'nda gösterdiği başarılar ile tanındı. 19 Mayıs 1919'da Samsun'a çıkarak Kurtuluş Savaşı'nı başlattı.</p>
+            
+            <h2>Kurtuluş Savaşı ve Cumhuriyet</h2>
+            <p>1920'de Büyük Millet Meclisi'ni kurdu ve Kurtuluş Savaşı'nın sonunda 29 Ekim 1923'te Cumhuriyet'i ilan etti. Türkiye'nin ilk Cumhurbaşkanı oldu.</p>
+            
+            <h2>Devrimler ve İlkeler</h2>
+            <p>Cumhuriyet'in ilanından sonra birçok devrim gerçekleştirdi. Harf Devrimi, Medeni Kanun'un kabulü, kılık-kıyafet değişiklikleri, kadınlara seçme ve seçilme hakkının verilmesi bunların en önemlilerindendir.</p>
+            
+            <h2>Vefatı</h2>
+            <p>10 Kasım 1938'de İstanbul Dolmabahçe Sarayı'nda hayatını kaybetti. Vefatı, Türk milleti için büyük bir kayıp oldu ve her yıl 10 Kasım'da ülke genelinde anma törenleri düzenlenmektedir.</p>
+        </div>
+        
+        <!-- Gallery Page Content -->
+        <div id="gallery-page" style="display: none;">
+            <div class="section-title">Atatürk Görseli Galerisi</div>
+            <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 20px; padding: 20px 0;">
+                <div style="text-align: center;">
+                    <img src="/api/placeholder/250/200" alt="Atatürk Görseli 1" />
+                    <p>Cumhuriyet'in İlanı, 1923</p>
+                </div>
+                <div style="text-align: center;">
+                    <img src="/api/placeholder/250/200" alt="Atatürk Görseli 2" />
+                    <p>Harf Devrimi, 1928</p>
+                </div>
+                <div style="text-align: center;">
+                    <img src="/api/placeholder/250/200" alt="Atatürk Görseli 3" />
+                    <p>TBMM'nin Açılışı, 1920</p>
+                </div>
+                <div style="text-align: center;">
+                    <img src="/api/placeholder/250/200" alt="Atatürk Görseli 4" />
+                    <p>Samsun'a Çıkış, 1919</p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- About Page Content -->
+        <div id="about-page" style="display: none;">
+            <div class="section-title">HAKKIMDA</div>
+            <div style="padding: 20px;">
+                <h2>Site Hakkında</h2>
+                <p>Bu web sitesi, Türkiye Cumhuriyeti'nin kurucusu Mustafa Kemal Atatürk'ün hayatı, eserleri ve Türk tarihi üzerindeki etkisini anlatmak amacıyla hazırlanmıştır.</p>
+                
+                <h2>Sitenin Amacı</h2>
+                <p>Amacımız, Atatürk'ün hayatı ve fikirlerini doğru ve tarafsız bir şekilde aktarmak, genç nesillere Atatürk'ün düşüncelerini ve vizyonunu tanıtmaktır.</p>
+                
+                <h2>İçerik Hakkında</h2>
+                <p>Sitede yer alan tüm içerikler, güvenilir kaynaklardan derlenmiştir. Herhangi bir içerik hatası veya öneri için iletişim sayfasından bize ulaşabilirsiniz.</p>
+            </div>
+        </div>
+        
+        <!-- Instagram Page -->
+        <div id="instagram-page" style="display: none;">
+            <div class="section-title">INSTAGRAM</div>
+            <div style="padding: 20px; text-align: center;">
+                <h2>Instagram Sayfamız</h2>
+                <p>Atatürk'ün hayatı ve düşünceleri hakkında daha fazla görsel ve bilgi için Instagram sayfamızı takip edebilirsiniz.</p>
+                <div style="margin: 30px 0;">
+                    <img src="/api/placeholder/300/300" alt="Instagram QR Kodu"  />
+                </div>
+                <p>Kullanıcı adımız: <strong>@ataturk_hayati</strong></p>
+                <p>Sayfamızda düzenli olarak Atatürk'ün hayatından kareler, alıntılar ve önemli günlere dair paylaşımlar yapıyoruz.</p>
+            </div>
+        </div>
+        
+        <!-- Contact Page Content -->
+        <div id="contact-page" style="display: none;">
+            <div class="section-title">İLETİŞİM</div>
+            <div style="padding: 20px;">
+                <form>
+                    <div style="margin-bottom: 15px;">
+                        <label for="name" style="display: block; margin-bottom: 5px;">Adınız:</label>
+                        <input type="text" id="name" style="width: 100%; padding: 8px; box-sizing: border-box;">
+                    </div>
+                    <div style="margin-bottom: 15px;">
+                        <label for="email" style="display: block; margin-bottom: 5px;">E-posta Adresiniz:</label>
+                        <input type="email" id="email" style="width: 100%; padding: 8px; box-sizing: border-box;">
+                    </div>
+                    <div style="margin-bottom: 15px;">
+                        <label for="message" style="display: block; margin-bottom: 5px;">Mesajınız:</label>
+                        <textarea id="message" rows="5" style="width: 100%; padding: 8px; box-sizing: border-box;"></textarea>
+                    </div>
+                    <button type="submit" style="background-color: #333; color: white; padding: 10px 15px; border: none; cursor: pointer;">Gönder</button>
+                </form>
+            </div>
+        </div>
+        
+        <!-- Topic Pages -->
+        <div id="topic-page-1" style="display: none;">
+            <div class="section-title">Türk Kurtuluş Savaşı</div>
+            <div style="padding: 20px;">
+                <h2>Türk Kurtuluş Savaşı (1919-1923)</h2>
+                <p>Türk Kurtuluş Savaşı, I. Dünya Savaşı'nın ardından Anadolu'nun işgaline karşı Türk halkının verdiği bağımsızlık mücadelesidir. Mustafa Kemal Atatürk'ün liderliğinde yürütülen bu mücadele, 1923 yılında Türkiye Cumhuriyeti'nin kuruluşu ile sonuçlanmıştır.</p>
+                
+                <h3>Önemli Savaşlar</h3>
+                <ul>
+                    <li>Sakarya Meydan Muharebesi (23 Ağustos - 13 Eylül 1921): Mustafa Kemal'in "Hattı müdafaa yoktur, sathı müdafaa vardır. O satıh bütün vatandır." sözüyle tarihe geçen, 22 gün 22 gece süren bu savaş, Türk ordusunun zaferiyle sonuçlanmıştır.</li>
+                    <li>Büyük Taarruz (26-30 Ağustos 1922): Türk ordusunun nihai zaferiyle sonuçlanan bu taarruz, Yunanlıların Anadolu'dan çıkarılmasını sağlamıştır.</li>
+                    <li>İnönü Muharebeleri (Ocak ve Mart 1921): Yunan kuvvetlerine karşı kazanılan bu zaferler, Türk milletinin moralini yükseltmiş ve bağımsızlık umutlarını artırmıştır.</li>
+                </ul>
+                
+                <h3>Önemli Antlaşmalar</h3>
+                <ul>
+                    <li>Sevr Antlaşması (10 Ağustos 1920): Osmanlı Devleti'nin imzaladığı ancak TBMM'nin hiçbir zaman kabul etmediği bu antlaşma, Türk topraklarının büyük bölümünü yabancı devletlere bırakıyordu.</li>
+                    <li>Lozan Antlaşması (24 Temmuz 1923): Türk Kurtuluş Savaşı'nın diplomatik zaferi sayılan bu antlaşma ile Türkiye Cumhuriyeti'nin sınırları ve bağımsızlığı uluslararası alanda tanınmıştır.</li>
+                </ul>
+                
+                <h3>Kurtuluş Savaşı'nın Aşamaları</h3>
+                <p>1. <strong>Hazırlık Dönemi (19 Mayıs 1919 - 23 Nisan 1920)</strong>: Mustafa Kemal'in Samsun'a çıkışıyla başlayan, Amasya Genelgesi, Erzurum ve Sivas Kongreleri ile devam eden ve TBMM'nin açılışına kadar süren dönem.</p>
+                <p>2. <strong>Silahlı Mücadele Dönemi (23 Nisan 1920 - 11 Ekim 1922)</strong>: TBMM'nin açılışıyla başlayan ve Mudanya Mütarekesi'nin imzalanmasına kadar süren, aktif savaş dönemi.</p>
+                <p>3. <strong>Barış Dönemi (11 Ekim 1922 - 24 Temmuz 1923)</strong>: Mudanya Mütarekesi'nden Lozan Antlaşması'nın imzalanmasına kadar süren diplomatik mücadele dönemi.</p>
+            </div>
+        </div>
+        
+        <div id="topic-page-2" style="display: none;">
+            <div class="section-title">Cumhuriyet Dönemi</div>
+            <div style="padding: 20px;">
+                <h2>Cumhuriyet Dönemi (1923-1938)</h2>
+                <p>Türkiye Cumhuriyeti'nin kuruluşundan Atatürk'ün vefatına kadar geçen süreyi kapsayan Cumhuriyet Dönemi, Türk tarihinin en önemli dönüşüm sürecidir. Bu dönemde gerçekleştirilen reformlar modern Türkiye'nin temellerini oluşturmuştur.</p>
+                
+                <h3>Cumhuriyet'in İlanı</h3>
+                <p>29 Ekim 1923 tarihinde Türkiye Büyük Millet Meclisi'nde alınan kararla Türkiye'nin yönetim şekli Cumhuriyet olarak ilan edilmiş ve Mustafa Kemal Atatürk oybirliğiyle ilk cumhurbaşkanı seçilmiştir. Aynı gün İsmet İnönü tarafından ilk cumhuriyet hükümeti kurulmuştur.</p>
+                
+                <h3>Siyasi Gelişmeler</h3>
+                <ul>
+                    <li><strong>Halifeliğin Kaldırılması (3 Mart 1924)</strong>: Din ve devlet işlerinin ayrılması yolunda atılan en önemli adımlardan biri olmuştur.</li>
+                    <li><strong>Çok Partili Hayat Denemeleri</strong>: Terakkiperver Cumhuriyet Fırkası (1924-1925) ve Serbest Cumhuriyet Fırkası (1930) gibi partilerin kurulması demokrasi yolunda atılan adımlar olsa da, bu partiler uzun ömürlü olamamıştır.</li>
+                </ul>
+                
+                <h3>Ekonomik Gelişmeler</h3>
+                <ul>
+                    <li><strong>İzmir İktisat Kongresi (1923)</strong>: Ekonomik bağımsızlığın sağlanması için kararlar alınmıştır.</li>
+                    <li><strong>Devletçilik Politikası</strong>: 1930'lardan sonra uygulanan bu politika ile özel sektörün yetersiz kaldığı alanlarda devlet yatırımları yapılmış, fabrikalar kurulmuştur.</li>
+                    <li><strong>Sanayi Planları</strong>: 1934'te Birinci Beş Yıllık Sanayi Planı uygulamaya konulmuştur.</li>
+                </ul>
+                
+                <h3>Eğitim ve Kültür Alanındaki Gelişmeler</h3>
+                <ul>
+                    <li><strong>Tevhid-i Tedrisat Kanunu (3 Mart 1924)</strong>: Eğitim birliğini sağlamak amacıyla çıkarılmıştır.</li>
+                    <li><strong>Harf İnkılabı (1 Kasım 1928)</strong>: Latin alfabesine geçilmiştir.</li>
+                    <li><strong>Türk Tarih Kurumu (1931) ve Türk Dil Kurumu (1932)</strong>: Türk tarihini ve dilini araştırmak için kurulmuştur.</li>
+                    <li><strong>Üniversite Reformu (1933)</strong>: İstanbul Üniversitesi kurulmuş ve yükseköğretim modernleştirilmiştir.</li>
+                </ul>
+                
+                <h3>Toplumsal Yaşama Yönelik Gelişmeler</h3>
+                <ul>
+                    <li><strong>Medeni Kanun'un Kabulü (17 Şubat 1926)</strong>: Kadın-erkek eşitliğine dayalı modern bir hukuk sistemi benimsenmiştir.</li>
+                    <li><strong>Şapka Kanunu (25 Kasım 1925)</strong>: Kıyafet modernleşmesi kapsamında çıkarılmıştır.</li>
+                    <li><strong>Kadınlara Seçme ve Seçilme Hakkı</strong>: 1930'da belediye seçimlerinde, 1934'te ise milletvekili seçimlerinde kadınlara seçme ve seçilme hakkı tanınmıştır.</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div id="topic-page-3" style="display: none;">
+            <div class="section-title">Atatürk İlkeleri</div>
+            <div style="padding: 20px;">
+                <h2>Atatürk İlkeleri</h2>
+                <p>Atatürk İlkeleri, Türkiye Cumhuriyeti'nin temel değerlerini ve yönelimlerini belirleyen altı temel ilkedir. Bu ilkeler Cumhuriyetçilik, Milliyetçilik, Halkçılık, Devletçilik, Laiklik ve İnkılapçılık olarak sıralanır.</p>
+                
+                <h3>Cumhuriyetçilik</h3>
+                <p>Egemenliğin kayıtsız şartsız millete ait olduğu yönetim biçimini benimseyen ilkedir. Cumhuriyetçilik, millet egemenliğine dayanan, seçimle iş başına gelen, belirli süreliğine görev yapan, halkın yönetime katılımını sağlayan demokratik bir rejimi ifade eder.</p>
+                <p><em>"Egemenlik kayıtsız şartsız milletindir."</em> - Mustafa Kemal Atatürk</p>
+                
+                <h3>Milliyetçilik</h3>
+                <p>Türk milletinin milli birlik ve beraberlik içinde, yurtseverlik duygusuyla bağımsız yaşamasını esas alan ilkedir. Atatürk milliyetçiliği, ırkçılıktan uzak, vatandaşlık temeline dayalı, kapsayıcı bir anlayışı temsil eder.</p>
+                <p><em>"Ne mutlu Türküm diyene!"</em> - Mustafa Kemal Atatürk</p>
+                
+                <h3>Halkçılık</h3>
+                <p>Toplumda hiçbir kişiye, zümreye veya sınıfa ayrıcalık tanımayan, kanun önünde eşitliği savunan ilkedir. Halkçılık, milli egemenliğin halk tarafından kullanılmasını öngörür ve sınıf ayrımını reddeder.</p>
+                <p><em>"Türkiye Cumhuriyeti halkını ayrı ayrı sınıflardan oluşmuş değil, fakat kişisel ve sosyal hayat için işbölümü itibariyle çeşitli mesleklere ayrılmış bir toplum olarak görmek esas prensiplerimizdendir."</em> - Mustafa Kemal Atatürk</p>
+                
+                <h3>Devletçilik</h3>
+                <p>Özel sektörün yetersiz kaldığı alanlarda devletin ekonomiye müdahalesini öngören ilkedir. Devletçilik, ekonomik kalkınmayı hızlandırmak ve özel girişimin gelişmesini teşvik etmek amacıyla benimsenmiştir.</p>
+                <p><em>"Türkiye'nin uyguladığı devletçilik sistemi, yirminci yüzyıldan beri sosyal teor
