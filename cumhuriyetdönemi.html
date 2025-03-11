@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Atatürk ve Cumhuriyet Dönemi</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #f9f9f9;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        header {
+            background-color: #000;
+            color: white;
+            padding: 20px 0;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        
+        header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+        
+        .section {
+            background-color: white;
+            border-radius: 8px;
+            padding: 25px;
+            margin-bottom: 30px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        
+        h2 {
+            color: #000;
+            border-bottom: 2px solid #000;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+            font-size: 1.8rem;
+        }
+        
+        h3 {
+            margin: 15px 0;
+            color: #333;
+            font-size: 1.4rem;
+        }
+        
+        p {
+            margin-bottom: 15px;
+            text-align: justify;
+        }
+        
+        .quote {
+            background-color: #f0f0f0;
+            border-left: 4px solid #000;
+            padding: 15px;
+            margin: 20px 0;
+            font-style: italic;
+        }
+        
+        .quote-author {
+            text-align: right;
+            font-weight: bold;
+            margin-top: 10px;
+        }
+        
+        .img-container {
+            text-align: center;
+            margin: 20px 0;
+        }
+        
+        .img-caption {
+            font-size: 0.9rem;
+            color: #666;
+            text-align: center;
+            margin-top: 8px;
+        }
+        
+        .timeline {
+            position: relative;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px 0;
+        }
+        
+        .timeline::after {
+            content: '';
+            position: absolute;
+            width: 6px;
+            background-color: #000;
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            margin-left: -3px;
+        }
+        
+        .timeline-item {
+            padding: 10px 40px;
+            position: relative;
+            width: 50%;
+        }
+        
+        .timeline-item::after {
+            content: '';
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background-color: white;
+            border: 4px solid #000;
+            border-radius: 50%;
+            top: 15px;
+            z-index: 1;
+        }
+        
+        .left {
+            left: 0;
+            text-align: right;
+        }
+        
+        .right {
+            left: 50%;
+        }
+        
+        .left::after {
+            right: -10px;
+        }
+        
+        .right::after {
+            left: -10px;
+        }
+        
+        .timeline-date {
+            font-weight: bold;
+            color: #000;
+        }
+        
+        .timeline-content {
+            padding: 15px;
+            background-color: white;
+            border-radius: 6px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        
+        footer {
+            background-color: #000;
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+            margin-top: 30px;
+        }
+        
+        @media screen and (max-width: 768px) {
+            .timeline::after {
+                left: 31px;
+            }
+            
+            .timeline-item {
+                width: 100%;
+                padding-left: 70px;
+                padding-right: 25px;
+            }
+            
+            .timeline-item::after {
+                left: 21px;
+            }
+            
+            .left {
+                left: 0;
+                text-align: left;
+            }
+            
+            .right {
+                left: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>ATATÜRK VE CUMHURİYET DÖNEMİ</h1>
+            <p>Türkiye Cumhuriyeti'nin Kuruluş Yılları ve Atatürk İnkılapları</p>
+        </div>
+    </header>
+    
+    <div class="container">
+        <section class="section" id="ataturk-hayati">
+            <h2>Mustafa Kemal Atatürk'ün Hayatı</h2>
+            <div class="img-container">
+                <img src="atam3.jpg" alt="Mustafa Kemal Atatürk" />
+                <p class="img-caption">Mustafa Kemal Atatürk, Türkiye Cumhuriyeti'nin kurucusu ve ilk Cumhurbaşkanı</p>
+            </div>
+            
+            <p>Mustafa Kemal Atatürk, 1881 yılında Selanik'te doğmuştur. Askerî eğitimi sırasında matematik öğretmeninin verdiği "Kemal" adını kullanmaya başlamıştır. Osmanlı Devleti'nin son dönemlerinde yetişmiş, Trablusgarp ve Balkan Savaşlarına katılmış, I. Dünya Savaşı'nda Çanakkale Cephesi'nde gösterdiği başarılarla tanınmıştır.</p>
+            
+            <p>19 Mayıs 1919'da Samsun'a çıkarak Millî Mücadele'yi başlatmış, Amasya Tamimi, Erzurum ve Sivas Kongreleri ile bağımsızlık mücadelesinin temellerini atmıştır. 23 Nisan 1920'de Türkiye Büyük Millet Meclisi'ni açarak millî iradeyi egemen kılmıştır.</p>
+            
+            <div class="quote">
+                <p>"Benim naçiz vücudum elbet bir gün toprak olacaktır, ancak Türkiye Cumhuriyeti ilelebet payidar kalacaktır."</p>
+                <p class="quote-author">- Mustafa Kemal Atatürk</p>
+            </div>
+            
+            <p>29 Ekim 1923'te Cumhuriyet'in ilanı ile birlikte Türkiye'nin ilk Cumhurbaşkanı olmuş, 10 Kasım 1938'de İstanbul'da hayata gözlerini yummuştur.</p>
+        </section>
+        
+        <section class="section" id="cumhuriyet-ilani">
+            <h2>Cumhuriyet'in İlanı ve Önemi</h2>
+            
+            <p>Türkiye Cumhuriyeti, 29 Ekim 1923 tarihinde ilan edilmiştir. Cumhuriyet rejiminin kabul edilmesiyle birlikte, egemenliğin kayıtsız şartsız millete ait olduğu bir yönetim anlayışı benimsenmiştir. Bu köklü değişim, Osmanlı İmparatorluğu'ndan kalan monarşik yapının tamamen sona ermesi ve modern bir devlet yapısının kurulması anlamına gelmektedir.</p>
+            
+            <h3>Cumhuriyet'in Temel İlkeleri</h3>
+            <p>Cumhuriyet rejimi ile birlikte Türkiye'de; halkın kendi kendini yönetmesi, kanun önünde eşitlik, temel hak ve özgürlüklerin güvence altına alınması, kuvvetler ayrılığı gibi demokratik ilkeler benimsenmiştir. Atatürk'ün önderliğinde kurulan Cumhuriyet, çağdaş uygarlık seviyesine ulaşmayı hedefleyen bir modernleşme projesi olarak da görülmektedir.</p>
+            
+            <div class="quote">
+                <p>"Cumhuriyet, fikir serbestliği taraftarıdır. Samimi ve meşru olmak şartıyla her fikre hürmet ederiz."</p>
+                <p class="quote-author">- Mustafa Kemal Atatürk</p>
+            </div>
+        </section>
+        
+        <section class="section" id="inkilaplar">
+            <h2>Atatürk İnkılapları</h2>
+            
+            <p>Atatürk önderliğinde gerçekleştirilen inkılaplar, Türkiye'yi çağdaş uygarlık seviyesine ulaştırmayı amaçlayan köklü değişikliklerdir. Bu inkılaplar siyasi, hukuki, eğitim, kültürel ve sosyal alanlarda gerçekleştirilmiştir.</p>
+            
+            <h3>Siyasi İnkılaplar</h3>
+            <p>Saltanatın kaldırılması (1 Kasım 1922), Cumhuriyet'in ilanı (29 Ekim 1923), Halifeliğin kaldırılması (3 Mart 1924) gibi inkılaplar ile Türkiye'de modern bir devlet yapısı oluşturulmuştur.</p>
+            
+            <h3>Hukuk Alanındaki İnkılaplar</h3>
+            <p>Medeni Kanun'un kabulü (17 Şubat 1926), Borçlar Kanunu, Ceza Kanunu ve Ticaret Kanunu'nun kabul edilmesi ile laik ve çağdaş hukuk düzenine geçilmiştir.</p>
+            
+            <h3>Eğitim ve Kültür Alanındaki İnkılaplar</h3>
+            <p>Tevhid-i Tedrisat Kanunu (3 Mart 1924) ile eğitim birleştirilmiş, Harf İnkılabı (1 Kasım 1928) ile Latin alfabesi kabul edilmiş, Türk Dil Kurumu ve Türk Tarih Kurumu kurulmuştur.</p>
+            
+            <h3>Sosyal Alandaki İnkılaplar</h3>
+            <p>Kıyafet Devrimi, şapka ve kıyafet kanunu (25 Kasım 1925), tekke ve zaviyelerin kapatılması, takvim, saat ve ölçülerde değişiklik, soyadı kanunu (21 Haziran 1934) gibi inkılaplar toplumsal yaşamı modernleştirmiştir.</p>
+            
+            <h3>Kadın Hakları Alanındaki İnkılaplar</h3>
+            <p>Türk kadınına seçme ve seçilme hakkının verilmesi (1930'da belediye, 1933'te muhtarlık, 1934'te milletvekili seçimlerinde) ile kadınların toplumsal statüsü güçlendirilmiştir.</p>
+        </section>
+        
+        <section class="section" id="timeline">
+            <h2>Cumhuriyet Dönemi Kronolojisi</h2>
+            
+            <div class="timeline">
+                <div class="timeline-item left">
+                    <div class="timeline-content">
+                        <h3 class="timeline-date">19 Mayıs 1919</h3>
+                        <p>Mustafa Kemal'in Samsun'a çıkışı ve Millî Mücadele'nin başlaması</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item right">
+                    <div class="timeline-content">
+                        <h3 class="timeline-date">23 Nisan 1920</h3>
+                        <p>Türkiye Büyük Millet Meclisi'nin açılması</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item left">
+                    <div class="timeline-content">
+                        <h3 class="timeline-date">1 Kasım 1922</h3>
+                        <p>Saltanatın kaldırılması</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item right">
+                    <div class="timeline-content">
+                        <h3 class="timeline-date">29 Ekim 1923</h3>
+                        <p>Cumhuriyet'in ilanı</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item left">
+                    <div class="timeline-content">
+                        <h3 class="timeline-date">3 Mart 1924</h3>
+                        <p>Halifeliğin kaldırılması ve Tevhid-i Tedrisat Kanunu'nun kabulü</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item right">
+                    <div class="timeline-content">
+                        <h3 class="timeline-date">17 Şubat 1926</h3>
+                        <p>Türk Medeni Kanunu'nun kabulü</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item left">
+                    <div class="timeline-content">
+                        <h3 class="timeline-date">1 Kasım 1928</h3>
+                        <p>Harf İnkılabı ile Latin alfabesinin kabulü</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item right">
+                    <div class="timeline-content">
+                        <h3 class="timeline-date">5 Aralık 1934</h3>
+                        <p>Kadınlara milletvekili seçme ve seçilme hakkının tanınması</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item left">
+                    <div class="timeline-content">
+                        <h3 class="timeline-date">10 Kasım 1938</h3>
+                        <p>Mustafa Kemal Atatürk'ün vefatı</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section class="section" id="ilkeler">
+            <h2>Atatürk İlkeleri</h2>
+            
+            <p>Atatürk İlkeleri, Türkiye Cumhuriyeti'nin temel niteliklerini belirleyen ve Cumhuriyet'in devamlılığını sağlayan düşünce sistemidir. Bu ilkeler, 1937 yılında Anayasa'ya girmiş ve devletin temel nitelikleri olarak kabul edilmiştir.</p>
+            
+            <h3>Cumhuriyetçilik</h3>
+            <p>Egemenliğin kayıtsız şartsız millete ait olduğu, milletin kendi kendini yönettiği bir devlet şeklidir.</p>
+            
+            <h3>Milliyetçilik</h3>
+            <p>Türk milletinin milli birlik ve beraberlik içinde varlığını sürdürmesi, milli kültürün korunması ve geliştirilmesi ilkesidir.</p>
+            
+            <h3>Halkçılık</h3>
+            <p>Kanun önünde eşitlik, sınıf ayrıcalıklarının reddedilmesi ve toplumsal dayanışma ilkesidir.</p>
+            
+            <h3>Devletçilik</h3>
+            <p>Ekonomik kalkınmada devletin öncü rol üstlenmesi, özel girişimcilik ile devlet işletmeciliğinin bir arada olduğu karma ekonomi modelidir.</p>
+            
+            <h3>Laiklik</h3>
+            <p>Din ve devlet işlerinin birbirinden ayrılması, inanç özgürlüğünün sağlanması, devletin tüm dinlere eşit mesafede durması ilkesidir.</p>
+            
+            <h3>İnkılapçılık</h3>
+            <p>Türkiye'nin sürekli olarak çağdaş uygarlık seviyesine ulaşması için yeniliklere açık olması, sürekli ilerleme ve gelişme ilkesidir.</p>
+        </section>
+    </div>
+    
+    <footer>
+        <div class="container">
+            <p>© 2025 Atatürk ve Cumhuriyet Dönemi | Tüm Hakları Saklıdır</p>
+        </div>
+    </footer>
+</body>
+</html>
