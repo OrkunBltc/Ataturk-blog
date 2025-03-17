@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Atatürk - Hakkımda</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0;
+            color: #333;
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 20px auto;
+            background-color: white;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+        }
+        
+        .header {
+            display: flex;
+            align-items: center;
+            padding: 10px 0;
+            border-bottom: 1px solid #ddd;
+            margin-bottom: 20px;
+        }
+        
+        .logo {
+            background: linear-gradient(to bottom, #333, #000);
+            color: white;
+            padding: 8px 15px;
+            font-size: 20px;
+            font-weight: bold;
+            text-align: center;
+            margin-right: 30px;
+        }
+        
+        .navigation {
+            display: flex;
+            background-color: #000;
+        }
+        
+        .navigation a {
+            color: white;
+            text-decoration: none;
+            padding: 8px 12px;
+            font-weight: bold;
+            transition: background-color 0.3s;
+            margin-right: 5px;
+        }
+        
+        .navigation a:hover {
+            background-color: #333;
+        }
+        
+        .content {
+            padding: 20px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+        
+        .about-main {
+            flex: 2;
+            min-width: 300px;
+            background-color: white;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .about-sidebar {
+            flex: 1;
+            min-width: 200px;
+            background-color: #f0f0f0;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .section-title {
+            background: linear-gradient(to bottom, #333, #000);
+            color: white;
+            padding: 10px;
+            text-align: center;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+        
+        .about-image {
+            width: 100%;
+            height: auto;
+            max-width: 300px;
+            display: block;
+            margin: 20px auto;
+            border: 3px solid #000;
+            filter: grayscale(100%);
+        }
+        
+        .about-quote {
+            font-style: italic;
+            font-size: 18px;
+            margin: 20px 0;
+            padding: 15px;
+            border-left: 4px solid #000;
+            background-color: #f0f0f0;
+        }
+        
+        .about-stats {
+            margin-top: 20px;
+        }
+        
+        .stat-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 8px 0;
+            border-bottom: 1px solid #ddd;
+        }
+        
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .social-link {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: #000;
+            color: white;
+            border-radius: 50%;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        
+        .footer {
+            display: flex;
+            justify-content: space-around;
+            background-color: #000;
+            padding: 10px;
+            margin-top: 20px;
+            color: white;
+        }
+        
+        .footer a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            padding: 5px 10px;
+        }
+        
+        .skill-bar {
+            width: 100%;
+            background-color: #e0e0e0;
+            height: 20px;
+            margin-bottom: 10px;
+        }
+        
+        .skill-level {
+            height: 100%;
+            background-color: #000;
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            padding-right: 10px;
+            color: white;
+            font-size: 12px;
+        }
+        
+        @media (max-width: 768px) {
+            .header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            
+            .logo {
+                margin-bottom: 10px;
+                margin-right: 0;
+            }
+            
+            .content {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="logo">Atatürk</div>
+            <div class="navigation">
+                <a href="son hali.html">Ana Sayfa</a>
+                <a href="ataturk-fotograf-galerisi.html">Galeri</a>
+                <a href="hakkimda.html">Hakkımda</a>
+                <a href="https://www.instagram.com/orkun.bltc40/">Instagram</a>
+                <a href="#">İletişim</a>
+            </div>
+        </div>
+        
+        <div class="section-title">HAKKIMDA</div>
+        
+        <div class="content">
+            <div class="about-main">
+               
+                
+                <h2>Merhaba, Ben Orkun Baltacı</h2>
+                <p>Türkiye Cumhuriyeti'nin kurucusu Mustafa Kemal Atatürk'ün hayatı ve ilkeleri hakkında bilgi paylaşmayı amaçlayan bu web sitesinin kurucusu ve yöneticisiyim.</p>
+                
+                <div class="about-quote">
+                    "Atatürk ilkeleri ve inkılapları, Türkiye'nin yalnızca geçmişini değil, geleceğini de aydınlatmaktadır. Bu değerli mirası genç nesillere aktarmak en büyük sorumluluğumdur."
+                </div>
+                
+                <h3>Eğitim</h3>
+                <p>Orta Okul: Kırşehir Cacabey Ortaokulu Lise: Kırşehir Simya Koleji Üniversite:Ahi Evran Teknik Bilimler Meslek Yüksek Okulu  </p>
+                
+                <h3>Amaç</h3>
+                <p>Bu site aracılığıyla, Atatürk'ü ve onun modern Türkiye'nin kuruluşundaki rolünü doğru ve objektif bir şekilde anlatmayı amaçlıyorum. Özellikle gençlere yönelik olarak, Atatürk'ün vizyonunu ve ideallerini anlaşılır bir dille aktarmaya çalışıyorum.</p>
+                
+                
+                
+                
+                <div class="social-links">
+                    <a href="#" class="social-link">T</a>
+                    <a href="https://www.instagram.com/orkun.bltc40/" class="social-link">I</a>
+                    <a href="#" class="social-link">F</a>
+                    <a href="#" class="social-link">Y</a>
+                </div>
+            </div>
+          
+              
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer">
+            <a href="#">Telif Hakkı</a>
+            <a href="#">Gizlilik Politikası</a>
+            <a href="#">Kullanım Şartları</a>
+            <a href="#">İletişim</a>
+        </div>
+    </div>
+</body>
+</html>
