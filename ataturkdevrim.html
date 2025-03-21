@@ -132,5 +132,106 @@
     <footer>
         <p>© 2025 Atatürk Devrimleri | Türkiye Cumhuriyeti'nin kuruluşu ve modernleşmesi</p>
     </footer>
+    <sprict>
+        document.addEventListener("DOMContentLoaded", function() {
+    const topicLinks = document.querySelectorAll(".topics-list a, .popular-list a");
+    
+    topicLinks.forEach(link => {
+        link.addEventListener("mouseenter", function() {
+            this.style.paddingLeft = "10px";
+            this.style.color = "#e63946";
+            this.style.transition = "all 0.3s ease";
+        });
+        
+        link.addEventListener("mouseleave", function() {
+            this.style.paddingLeft = "0";
+            this.style.color = "";
+        });
+    });
+});
+document.addEventListener("DOMContentLoaded", function() {
+    // Sayfanın header kısmına karanlık mod toggle butonu ekle
+    const header = document.querySelector(".header");
+    
+    if (header) {
+        const darkModeButton = document.createElement("button");
+        darkModeButton.textContent = "🌙"; // Ay emojisi - karanlık mod için
+        darkModeButton.id = "dark-mode-toggle";
+        darkModeButton.style.backgroundColor = "transparent";
+        darkModeButton.style.border = "none";
+        darkModeButton.style.fontSize = "18px";
+        darkModeButton.style.cursor = "pointer";
+        darkModeButton.style.marginLeft = "auto";
+        darkModeButton.style.padding = "8px";
+        
+        // Butonu header'a ekle
+        header.appendChild(darkModeButton);
+        
+        // Local storage'dan karanlık mod ayarını kontrol et
+        const isDarkMode = localStorage.getItem("darkMode") === "true";
+        if (isDarkMode) {
+            document.body.classList.add("dark-mode");
+            darkModeButton.textContent = "☀️"; // Güneş emojisi - aydınlık mod için
+        }
+        
+        // Karanlık mod toggle işlevselliği
+        darkModeButton.addEventListener("click", function() {
+            document.body.classList.toggle("dark-mode");
+            
+            if (document.body.classList.contains("dark-mode")) {
+                localStorage.setItem("darkMode", "true");
+                this.textContent = "☀️";
+            } else {
+                localStorage.setItem("darkMode", "false");
+                this.textContent = "🌙";
+            }
+        });
+        
+        // Karanlık mod CSS'ini sayfaya ekle
+        const darkModeStyle = document.createElement("style");
+        darkModeStyle.textContent = `
+            .dark-mode {
+                background-color: #121212 !important;
+                color: #e0e0e0 !important;
+            }
+            
+            .dark-mode .container {
+                background-color: #212121 !important;
+                box-shadow: 0 0 10px rgba(255, 255, 255, 0.1) !important;
+            }
+            
+            .dark-mode .sidebar,
+            .dark-mode .timeline {
+                background-color: #333 !important;
+            }
+            
+            .dark-mode .topics-list a, 
+            .dark-mode .popular-list a {
+                color: #e0e0e0 !important;
+            }
+            
+            .dark-mode .topics-list a:hover, 
+            .dark-mode .popular-list a:hover {
+                color: #90caf9 !important;
+            }
+            
+            .dark-mode .topics-list li, 
+            .dark-mode .popular-list li {
+                border-bottom: 1px solid #424242 !important;
+            }
+            
+            .dark-mode .marker {
+                background-color: #90caf9 !important;
+            }
+            
+            .dark-mode .timeline-markers::before {
+                background-color: #616161 !important;
+            }
+        `;
+        
+        document.head.appendChild(darkModeStyle);
+    }
+});
+    </sprict>
 </body>
 </html>
