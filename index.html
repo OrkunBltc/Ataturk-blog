@@ -459,3 +459,262 @@
                 <h3>Devletçilik</h3>
                 <p>Özel sektörün yetersiz kaldığı alanlarda devletin ekonomiye müdahalesini öngören ilkedir. Devletçilik, ekonomik kalkınmayı hızlandırmak ve özel girişimin gelişmesini teşvik etmek amacıyla benimsenmiştir.</p>
                 <p><em>"Türkiye'nin uyguladığı devletçilik sistemi, yirminci yüzyıldan beri sosyal teor
+                    <script>
+document.addEventListener("DOMContentLoaded", function() {
+    // Zaman çizelgesi markerleri
+    const markers = document.querySelectorAll(".marker");
+    
+    // Animasyon gecikmesi için sayaç
+    let delay = 0;
+    
+    // Her marker'ı görünür hale getir ve bilgi baloncuklarını göster
+    markers.forEach((marker, index) => {
+        // Başlangıçta tüm markerları gizle
+        marker.style.opacity = "0";
+        marker.style.transform = "scale(0.5)";
+        marker.style.transition = "all 0.5s ease";
+        
+        // Zaman çizelgisinde yer alan yıl ve olay etiketlerini seç
+        const year = marker.querySelector(".year");
+        const event = marker.querySelector(".event");
+        
+        if (year) year.style.opacity = "0";
+        if (event) event.style.opacity = "0";
+        
+        // Markerları sırayla göster
+        setTimeout(() => {
+            marker.style.opacity = "1";
+            marker.style.transform = "scale(1)";
+            
+            // Yıl ve olay bilgisini göster
+            setTimeout(() => {
+                if (year) {
+                    year.style.transition = "opacity 0.5s ease";
+                    year.style.opacity = "1";
+                }
+                
+                setTimeout(() => {
+                    if (event) {
+                        event.style.transition = "opacity 0.5s ease";
+                        event.style.opacity = "1";
+                    }
+                }, 300);
+            }, 300);
+        }, delay);
+        
+        delay += 500; // Her marker için gecikmeyi arttır
+    });
+     const timelineContainer = document.querySelector(".timeline-markers");
+    if (timelineContainer) {
+        const line = document.createElement("div");
+        line.className = "timeline-line";
+        line.style.position = "absolute";
+        line.style.top = "50%";
+        line.style.left = "0";
+        line.style.height = "2px";
+        line.style.backgroundColor = "#999";
+        line.style.width = "0";
+        line.style.transition = "width 2.5s ease";
+        line.style.zIndex = "1";
+        
+        timelineContainer.appendChild(line);
+        
+        // Sayfa yüklendiğinde çizgiyi animasyonla göster
+        setTimeout(() => {
+            line.style.width = "100%";
+        }, 500);
+    }
+});
+                        document.addEventListener("DOMContentLoaded", function() {
+    const markers = document.querySelectorAll(".marker");
+    
+    markers.forEach(marker => {
+        marker.addEventListener("mouseenter", function() {
+            // Marker'ı biraz büyüt ve parlat
+            this.style.transform = "scale(1.2)";
+            this.style.boxShadow = "0 0 10px rgba(0,0,0,0.5)";
+            
+            // İlgili yıl ve event bilgisinin yazı rengini değiştir
+            const year = this.querySelector(".year");
+            const event = this.querySelector(".event");
+            
+            if (year) year.style.color = "#e63946";
+            if (event) event.style.fontWeight = "bold";
+        });
+        
+        marker.addEventListener("mouseleave", function() {
+            this.style.transform = "scale(1)";
+            this.style.boxShadow = "none";
+            
+            const year = this.querySelector(".year");
+            const event = this.querySelector(".event");
+            
+            if (year) year.style.color = "";
+            if (event) event.style.fontWeight = "";
+        });
+        
+        // Tıklama olayı ekle - tıklandığında ilgili olayın detaylı açıklaması gösterilebilir
+        marker.addEventListener("click", function() {
+            const year = this.querySelector(".year").textContent;
+            showEventDetails(year);
+        });
+    });
+});
+
+function showEventDetails(year) {
+    const eventDetails = {
+        "1881": "Mustafa Kemal Atatürk, 1881 yılında Selanik'te dünyaya geldi. Babası Ali Rıza Efendi, annesi Zübeyde Hanım'dır.",
+        "1915": "Çanakkale Savaşı'nda 19. Tümen Komutanı olarak görev yapan Mustafa Kemal, düşman kuvvetlerinin ilerleyişini durdurarak büyük bir başarı kazandı.",
+        "1919": "19 Mayıs 1919'da Samsun'a çıkan Mustafa Kemal, Kurtuluş Savaşı'nı başlattı. Anadolu'daki direniş hareketinin lideri oldu.",
+        "1923": "29 Ekim 1923'te Türkiye Cumhuriyeti ilan edildi ve Mustafa Kemal, yeni kurulan devletin ilk Cumhurbaşkanı oldu.",
+        "1938": "10 Kasım 1938'de İstanbul Dolmabahçe Sarayı'nda hayata gözlerini yumdu. Vefatı tüm Türkiye'de büyük bir üzüntüyle karşılandı."
+    };
+    
+    // Eğer varolan bir detay kutucuğu varsa kaldır
+    const existingDetail = document.querySelector(".event-detail-popup");
+    if (existingDetail) existingDetail.remove();
+    
+    // Popup oluştur
+    const detailPopup = document.createElement("div");
+    detailPopup.className = "event-detail-popup";
+    detailPopup.innerHTML = `
+        <h3>${year} Yılı</h3>
+        <p>${eventDetails[year] || "Bu yıla ait detaylı bilgi bulunmamaktadır."}</p>
+        <button id="close-popup">Kapat</button>
+    `;
+    
+    // Stil ekle
+    detailPopup.style.position = "fixed";
+    detailPopup.style.top = "50%";
+    detailPopup.style.left = "50%";
+    detailPopup.style.transform = "translate(-50%, -50%)";
+    detailPopup.style.backgroundColor = "white";
+    detailPopup.style.padding = "20px";
+    detailPopup.style.borderRadius = "5px";
+    detailPopup.style.boxShadow = "0 0 10px rgba(0,0,0,0.5)";
+    detailPopup.style.zIndex = "1000";
+    detailPopup.style.maxWidth = "400px";
+    
+    // Sayfaya ekle
+    document.body.appendChild(detailPopup);
+    
+    // Kapatma düğmesi işlevselliği
+    document.getElementById("close-popup").addEventListener("click", function() {
+        detailPopup.remove();
+    });
+}document.addEventListener("DOMContentLoaded", function() {
+    const topicLinks = document.querySelectorAll(".topics-list a, .popular-list a");
+    
+    topicLinks.forEach(link => {
+        link.addEventListener("mouseenter", function() {
+            this.style.paddingLeft = "10px";
+            this.style.color = "#e63946";
+            this.style.transition = "all 0.3s ease";
+        });
+        
+        link.addEventListener("mouseleave", function() {
+            this.style.paddingLeft = "0";
+            this.style.color = "";
+        });
+    });
+});
+document.addEventListener("DOMContentLoaded", function() {
+    // Sayfanın header kısmına karanlık mod toggle butonu ekle
+    const header = document.querySelector(".header");
+    
+    if (header) {
+        const darkModeButton = document.createElement("button");
+        darkModeButton.textContent = "🌙"; // Ay emojisi - karanlık mod için
+        darkModeButton.id = "dark-mode-toggle";
+        darkModeButton.style.backgroundColor = "transparent";
+        darkModeButton.style.border = "none";
+        darkModeButton.style.fontSize = "18px";
+        darkModeButton.style.cursor = "pointer";
+        darkModeButton.style.marginLeft = "auto";
+        darkModeButton.style.padding = "8px";
+        
+        // Butonu header'a ekle
+        header.appendChild(darkModeButton);
+        
+        // Local storage'dan karanlık mod ayarını kontrol et
+        const isDarkMode = localStorage.getItem("darkMode") === "true";
+        if (isDarkMode) {
+            document.body.classList.add("dark-mode");
+            darkModeButton.textContent = "☀️"; // Güneş emojisi - aydınlık mod için
+        }
+        
+        // Karanlık mod toggle işlevselliği
+        darkModeButton.addEventListener("click", function() {
+            document.body.classList.toggle("dark-mode");
+            
+            if (document.body.classList.contains("dark-mode")) {
+                localStorage.setItem("darkMode", "true");
+                this.textContent = "☀️";
+            } else {
+                localStorage.setItem("darkMode", "false");
+                this.textContent = "🌙";
+            }
+        });
+        
+        // Karanlık mod CSS'ini sayfaya ekle
+        const darkModeStyle = document.createElement("style");
+        darkModeStyle.textContent = `
+            .dark-mode {
+                background-color: #121212 !important;
+                color: #e0e0e0 !important;
+            }
+            
+            .dark-mode .container {
+                background-color: #212121 !important;
+                box-shadow: 0 0 10px rgba(255, 255, 255, 0.1) !important;
+            }
+            
+            .dark-mode .sidebar,
+            .dark-mode .timeline {
+                background-color: #333 !important;
+            }
+            
+            .dark-mode .topics-list a, 
+            .dark-mode .popular-list a {
+                color: #e0e0e0 !important;
+            }
+            
+            .dark-mode .topics-list a:hover, 
+            .dark-mode .popular-list a:hover {
+                color: #90caf9 !important;
+            }
+            
+            .dark-mode .topics-list li, 
+            .dark-mode .popular-list li {
+                border-bottom: 1px solid #424242 !important;
+            }
+            
+            .dark-mode .marker {
+                background-color: #90caf9 !important;
+            }
+            
+            .dark-mode .timeline-markers::before {
+                background-color: #616161 !important;
+            }
+        `;
+        
+        document.head.appendChild(darkModeStyle);
+    }
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                        
+                    </script>
