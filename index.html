@@ -225,6 +225,7 @@
         <div id="main-page">
             <div class="content">
                 <div class="main-content">
+                    
                    
                     <div style="text-align: center; padding: 20px 0;">
                         <img src="depositphotos_685502124-stock-photo-november-anitkabir-mausoleum-founder-turkish.jpg" alt="Atatürk Görseli" style="max-width: 100%; height: auto;" />
@@ -286,6 +287,22 @@ Atatürk’ün ailesi, Osmanlı topraklarında göçebe yaşayan Kocacık Yörü
                     </div>
                 </div>
             </div>
+
+
+            <div id="yorumlar" style="width: 90%; max-width: 1200px; margin: 20px auto; background-color: white; box-shadow: 0 0 10px rgba(0,0,0,0.1); padding: 20px;">
+                <h2 style="text-align: center;">Ziyaretçi Yorumları</h2>
+                
+                <input type="text" id="kullaniciAdi" placeholder="Adınız" style="width: 100%; padding: 10px; margin-bottom: 10px; box-sizing: border-box;" />
+                
+                <textarea id="yorumInput" placeholder="Yorumunuzu yazın..." style="width: 100%; height: 100px; padding: 10px; margin-bottom: 10px; box-sizing: border-box;"></textarea>
+                
+                <button id="yorumEkleBtn" style="background-color: #333; color: white; padding: 10px 15px; border: none; cursor: pointer;">Yorum Ekle</button>
+                
+                <div id="yorumListesi" style="margin-top: 20px;">
+                    <!-- Yorumlar burada listelenecek -->
+                </div>
+            </div>
+            
         
         <!-- Biography Page Content -->
         <div id="biography-page" style="display: none;">
@@ -722,4 +739,35 @@ document.addEventListener("DOMContentLoaded", function() {
 
 
                         
+                    </script>
+                    <script>
+  document.addEventListener("DOMContentLoaded", function() {
+    const kullaniciAdiInput = document.getElementById("kullaniciAdi");
+    const yorumInput = document.getElementById("yorumInput");
+    const yorumEkleBtn = document.getElementById("yorumEkleBtn");
+    const yorumListesi = document.getElementById("yorumListesi");
+
+    yorumEkleBtn.addEventListener("click", function() {
+        const kullaniciAdi = kullaniciAdiInput.value.trim();
+        const yorumMetni = yorumInput.value.trim();
+
+        if (kullaniciAdi === "" || yorumMetni === "") {
+            alert("Lütfen adınızı ve yorumunuzu yazın!");
+            return;
+        }
+
+        const yeniYorum = document.createElement("div");
+        yeniYorum.style.borderBottom = "1px solid #ddd";
+        yeniYorum.style.padding = "10px 0";
+        yeniYorum.innerHTML = `<strong>${kullaniciAdi}</strong>: ${yorumMetni}`;
+
+        yorumListesi.prepend(yeniYorum);
+
+        // Kutuları temizle
+        kullaniciAdiInput.value = "";
+        yorumInput.value = "";
+    });
+});
+
+
                     </script>
