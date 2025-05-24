@@ -773,3 +773,46 @@ document.addEventListener("DOMContentLoaded", function() {
 
 
                     </script>
+                    <div id="chatbot-container" style="position: fixed; bottom: 20px; right: 20px; z-index: 9999;">
+  <button id="chatbot-toggle" style="background-color: #333; color: white; border: none; padding: 10px 15px; border-radius: 20px; cursor: pointer;">Sohbet Et</button>
+  
+  <div id="chatbot-box" style="display: none; width: 300px; height: 400px; background-color: white; border: 1px solid #ccc; border-radius: 10px; box-shadow: 0 0 10px rgba(0,0,0,0.3); overflow: hidden; position: relative; margin-top: 10px;">
+    <div style="background-color: #000; color: white; padding: 10px; text-align: center;">Chatbot</div>
+    <div id="chatbot-messages" style="padding: 10px; height: 300px; overflow-y: auto; font-size: 14px;"></div>
+    <div style="padding: 10px; border-top: 1px solid #ccc;">
+      <input type="text" id="chatbot-input" placeholder="Mesajınızı yazın..." style="width: 80%; padding: 5px;" />
+      <button id="chatbot-send" style="width: 18%; background-color: #333; color: white; border: none; padding: 5px;">Gönder</button>
+    </div>
+  </div>
+</div>
+
+<script>
+  document.getElementById("chatbot-toggle").addEventListener("click", function() {
+    const box = document.getElementById("chatbot-box");
+    box.style.display = box.style.display === "none" ? "block" : "none";
+  });
+
+  document.getElementById("chatbot-send").addEventListener("click", function() {
+    const input = document.getElementById("chatbot-input");
+    const messages = document.getElementById("chatbot-messages");
+    const userMessage = input.value.trim();
+    if (userMessage === "") return;
+
+    const userBubble = <div style="text-align: right; margin-bottom: 5px;"><span style="background-color: #333; color: white; padding: 5px 10px; border-radius: 15px; display: inline-block;">${userMessage}</span></div>;
+    messages.innerHTML += userBubble;
+
+    // Basit Türkçe cevaplar
+    let botResponse = "Anlayamadım, lütfen tekrar yazın.";
+    if (userMessage.includes("merhaba") || userMessage.includes("selam")) botResponse = "Merhaba! Size nasıl yardımcı olabilirim?";
+    else if (userMessage.includes("atam") || userMessage.includes("atatürk")) botResponse = "Atatürk hakkında detaylı bilgiyi üst menüdeki bölümlerden alabilirsiniz.";
+    else if (userMessage.includes("site") || userMessage.includes("hakkında")) botResponse = "Bu site, Atatürk'ün hayatını ve eserlerini anlatmak amacıyla hazırlanmıştır.";
+
+    const botBubble = <div style="text-align: left; margin-bottom: 5px;"><span style="background-color: #eee; padding: 5px 10px; border-radius: 15px; display: inline-block;">${botResponse}</span></div>;
+    setTimeout(() => {
+      messages.innerHTML += botBubble;
+      messages.scrollTop = messages.scrollHeight;
+    }, 500);
+
+    input.value = "";
+  });
+</script>
