@@ -773,10 +773,12 @@ document.addEventListener("DOMContentLoaded", function() {
 
 
                     </script>
-                    <!-- Aşağıdaki satırı chatbot bileşeni için gövdenin en sonuna ekliyoruz -->
+<!-- Aşağıdaki satırı chatbot bileşeni için gövdenin en sonuna ekliyoruz -->
 <div id="chatbot-container" style="position: fixed; bottom: 20px; right: 20px; z-index: 9999;">
-  <button id="chatbot-toggle" style="background-color: #333; color: white; border: none; padding: 10px 15px; border-radius: 20px; cursor: pointer;">Sohbet Et</button>
-  
+  <button id="chatbot-toggle" style="background-color: transparent; border: none; cursor: pointer;">
+    <img src="https://cdn-icons-png.flaticon.com/512/4712/4712106.png" alt="Chatbot Aç" style="width: 60px; height: 60px; border-radius: 50%; box-shadow: 0 0 10px rgba(0,0,0,0.3);">
+  </button>
+
   <div id="chatbot-box" style="display: none; width: 300px; height: 400px; background-color: white; border: 1px solid #ccc; border-radius: 10px; box-shadow: 0 0 10px rgba(0,0,0,0.3); overflow: hidden; position: relative; margin-top: 10px;">
     <div style="background-color: #000; color: white; padding: 10px; text-align: center;">Chatbot</div>
     <div id="chatbot-messages" style="padding: 10px; height: 300px; overflow-y: auto; font-size: 14px;"></div>
