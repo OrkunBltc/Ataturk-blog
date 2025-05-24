@@ -725,6 +725,54 @@ document.addEventListener("DOMContentLoaded", function() {
         document.head.appendChild(darkModeStyle);
     }
 });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                        
+                    </script>
+                    <script>
+  document.addEventListener("DOMContentLoaded", function() {
+    const kullaniciAdiInput = document.getElementById("kullaniciAdi");
+    const yorumInput = document.getElementById("yorumInput");
+    const yorumEkleBtn = document.getElementById("yorumEkleBtn");
+    const yorumListesi = document.getElementById("yorumListesi");
+
+    yorumEkleBtn.addEventListener("click", function() {
+        const kullaniciAdi = kullaniciAdiInput.value.trim();
+        const yorumMetni = yorumInput.value.trim();
+
+        if (kullaniciAdi === "" || yorumMetni === "") {
+            alert("Lütfen adınızı ve yorumunuzu yazın!");
+            return;
+        }
+
+        const yeniYorum = document.createElement("div");
+        yeniYorum.style.borderBottom = "1px solid #ddd";
+        yeniYorum.style.padding = "10px 0";
+        yeniYorum.innerHTML = `<strong>${kullaniciAdi}</strong>: ${yorumMetni}`;
+
+        yorumListesi.prepend(yeniYorum);
+
+        // Kutuları temizle
+        kullaniciAdiInput.value = "";
+        yorumInput.value = "";
+    });
+});
+
+
+                    </script>
 <!-- Chatbot Container -->
 <div id="chatbot-container" style="position: fixed; bottom: 20px; right: 20px; z-index: 9999;">
   <button id="chatbot-toggle" style="background-color: transparent; border: none; cursor: pointer;">
@@ -785,52 +833,5 @@ document.addEventListener("DOMContentLoaded", function() {
     input.value = "";
   });
 </script>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                        
-                    </script>
-                    <script>
-  document.addEventListener("DOMContentLoaded", function() {
-    const kullaniciAdiInput = document.getElementById("kullaniciAdi");
-    const yorumInput = document.getElementById("yorumInput");
-    const yorumEkleBtn = document.getElementById("yorumEkleBtn");
-    const yorumListesi = document.getElementById("yorumListesi");
-
-    yorumEkleBtn.addEventListener("click", function() {
-        const kullaniciAdi = kullaniciAdiInput.value.trim();
-        const yorumMetni = yorumInput.value.trim();
-
-        if (kullaniciAdi === "" || yorumMetni === "") {
-            alert("Lütfen adınızı ve yorumunuzu yazın!");
-            return;
-        }
-
-        const yeniYorum = document.createElement("div");
-        yeniYorum.style.borderBottom = "1px solid #ddd";
-        yeniYorum.style.padding = "10px 0";
-        yeniYorum.innerHTML = `<strong>${kullaniciAdi}</strong>: ${yorumMetni}`;
-
-        yorumListesi.prepend(yeniYorum);
-
-        // Kutuları temizle
-        kullaniciAdiInput.value = "";
-        yorumInput.value = "";
-    });
-});
-
-
-                    </script>
-
+                
                    
